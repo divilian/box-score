@@ -1,0 +1,86 @@
+
+I've decided I want to take this thing to the next level.
+
+I'd like to create (and host, on stephendavies.org) a website (working title:
+"Box Score") that has the following features:
+
+- All data is stored in a Mongo instance running on stephendavies.org, in a
+  database called "boxing" and in a collection called "fighters".
+
+- The code to produce the content will be a Flask app running in Python.
+
+- The site has an attractive landing page, with a list of all the major
+  fighters in the past century, alphabetical and arranged by weight class. Each
+of the items in the list under a particular weight class will be a clickable
+name, and a clickable thumbnail image. When the user clicks one, they will be
+directed to that fighter's page.
+
+- Each fighter's page will be very similar to the markdown content you've
+  created so far, except:
+
+    a) in HTML instead of Markdown (or maybe HTML-by-way-of-Markdown? not sure)
+
+    b) an image of the fighter (taken from Wikipedia or whatever) prominently
+    displayed in the upper-left corner
+
+    c) a list of various general stats (birth place and date, weight class,
+    aliases, and possibly other relevant facts)
+
+    d) the ages (for both the focal fighter and his opponents) should be
+colored, according to the following RGB scheme:
+
+colors = {
+    18: (  7, 90,   9),
+    19: ( 56, 91,  24),
+    20: ( 92, 82,  21),
+    21: (134, 70,  17),
+    22: (175, 60,  14),
+    23: (206, 51,  13),
+    24: (220, 38,  13),
+    25: (235, 23,  11),
+    26: (248, 12,  12),
+    27: (232,  7,  18),
+    28: (220, 10,  32),
+    29: (207,  9,  39),
+    30: (197, 11,  48),
+    31: (184,  9,  57),
+    32: (176,  9,  69),
+    33: (165, 10,  83),
+    34: (154,  9,  94),
+    35: (142,  9, 114),
+    36: (120, 10, 127),
+    37: (103, 13, 145),
+    38: ( 90, 21, 161),
+    39: ( 77, 25, 176),
+    40: ( 69, 28, 187),
+    41: ( 63, 32, 198),
+    42: ( 58, 34, 209),
+    43: ( 51, 33, 221),
+    44: ( 45, 31, 229),
+    45: ( 11,  8, 248),
+}
+
+    Anything lower than 18 should be pure green, and anything higher than 45
+should be pure blue.
+
+    3) the names of the opponent fighter in each row should, if that fighter
+exists in the database in his own right, be a hyperlink to that fighter's page.
+(So while browsing Marvin Hagler, I could click on "Thomas Hearns" to bring up
+Hearns's page.) If the opponent fighter does not exist in his own right in the
+database, then the link on the original focal fighter's page will simply not be
+a hyperlink (but rather plain text).
+
+    4) The result of the fight (like the text "TKO13" or whatever) should be a
+hyperlink to a youtube video of that fight, if such a video exists. Prefer
+full-length fights to simple "highlight" videos of the fight. In the case of
+more than one video showing the same full-length fight, prefer the
+shorter-length video.
+
+
+The way I'd like to proceed is for you to guide me towards each next step, and
+give me sample code only when I ask for it. I'd first like to build the entire
+app and get it working for just a small number of fighters (6-8), and then I'll
+ask you to do the grunt work of RAG searching for *all* major fighters and
+populating the Mongo database correctly.
+
+Does this sound like a do-able project?
