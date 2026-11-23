@@ -1,4 +1,4 @@
-# Box Score — Data schema (draft v0.1)
+# Box Score — Data schema (draft v0.2)
 
 **Status:** Proposed design, not an existing MongoDB validation rule.
 
@@ -23,9 +23,9 @@ validators later; the more involved cross-document checks belong in Python.
   inadvertently shift a fight or birth date.
 - Numeric measurements use **inches** for height/reach and **pounds** for
   official weigh-in weights. Weights can contain fractional pounds.
-- A MongoDB **ObjectId** links a fight participant to a boxer. Separate
-  immutable **string keys** help portable imports/upserts and avoid
-  relying on independently generated ObjectIds across environments.
+- An immutable **string slug** links a fight participant to a boxer and
+  serves as the boxer's import identity and public URL segment. MongoDB
+  ObjectIds are internal document identifiers, not cross-document references.
 - Source URLs and externally reported statistics are claims supported by
   references; they must not be silently replaced by calculations.
 - Field naming uses `snake_case`.
@@ -38,9 +38,8 @@ and do not yet have public pages.
 | Field | Type | Required | Meaning / rules |
 | --- | --- | :---: | --- |
 | `_id` | ObjectId | Yes | MongoDB document identifier. |
-| `key` | String | Yes | Unique, immutable importer identifier, e.g. `muhammad-ali-1942`; not necessarily the public URL. |
 | `name` | String | Yes | Canonical display name, e.g. `Muhammad Ali`. |
-| `slug` | String | For published | Unique URL segment, e.g. `muhammad-ali`; optional for unpublished minimal records. |
+| `slug` | String | Yes | Unique, immutable boxer identifier and public URL segment, e.g. `muhammad-ali`; required even for unpublished records. |
 | `birth_name` | String | No | Name at birth, when relevant; not a synonym for a longer version of `name`. |
 | `nicknames` | Array of strings | No | Zero or more known nicknames. |
 | `birth_date` | Date | No | Date of birth, if reliably known. |
@@ -90,14 +89,14 @@ is incomplete or sources disagree.
 ### Minimal unpublished boxer records
 
 A boxer does **not** need a complete profile to exist in `boxers`. We can
-create a record containing `key`, `name`, `published: false`,
+create a record containing `slug`, `name`, `published: false`,
 `fight_history_complete: false`, and timestamps, with optional biographical
 facts as we learn them. Every participant in every fight should refer to a
 boxer document, even if that boxer is unpublished.
 
 The site's directory includes only `published: true` boxers. An opponent's
 name becomes a hyperlink only when that opponent's boxer document is
-published and has a `slug`.
+published.
 
 ### Boxer example (MongoDB Extended JSON, illustrative)
 
@@ -108,7 +107,6 @@ sources still need to be documented before publication.
 ```json
 {
   "_id": { "$oid": "64b000000000000000000001" },
-  "key": "muhammad-ali-1942",
   "name": "Muhammad Ali",
   "slug": "muhammad-ali",
   "birth_name": "Cassius Marcellus Clay Jr.",
@@ -166,7 +164,7 @@ One document per professional bout, shared by **both** participants. No
 
 | Field | Type | Required | Meaning / rules |
 | --- | --- | :---: | --- |
-| `boxer_id` | ObjectId | Yes | References `boxers._id`; participants must differ. |
+| `boxer_slug` | String | Yes | References `boxers.slug`; participants must differ. |
 | `name_at_fight` | String | No | Historical name when different from the canonical boxer name. |
 | `weight_lb` | Decimal128 | No | Official weigh-in weight in pounds; never invent a value. |
 | `pre_fight_record` | Object | No | Independently reported pre-bout record (below). |
@@ -187,7 +185,7 @@ weigh-in figure.
 | Field | Type | Required | Meaning / rules |
 | --- | --- | :---: | --- |
 | `outcome` | String | Yes | One of `win`, `draw`, `no_contest` (extend later if needed). |
-| `winner_id` | ObjectId | If `outcome=win` | Must reference one of the two participants; omit for draws/no-contests. |
+| `winner_slug` | String | If `outcome=win` | Must reference one of the two participants; omit for draws/no-contests. |
 | `method` | String | No | Standardized code: `KO`, `TKO`, `UD`, `SD`, `MD`, `DQ`, `RTD`, `PTS`, `TD`, etc. |
 | `round` | Integer | No | Round of a stoppage or other round-specific conclusion. |
 | `time` | String | No | Time within that round, e.g. `2:10`. |
@@ -195,7 +193,7 @@ weigh-in figure.
 
 `outcome` describes the **bout as a whole**, not the perspective of one
 boxer. The application derives `W` or `L` by comparing the current boxer
-with `winner_id`; a draw or no-contest displays appropriately on both pages.
+with `winner_slug`; a draw or no-contest displays appropriately on both pages.
 
 For example, a stoppage in round 3 can display as `W TKO3` / `L TKO3`.
 For a decision after 15 completed rounds, display `W UD15` / `L UD15`.
@@ -240,8 +238,8 @@ with real boxing sources.
 
 ### Fight example (MongoDB Extended JSON, illustrative)
 
-Ali–Frazier I, shown from neither fighter's perspective. The boxed IDs are
-illustrative and do not refer to existing database records. The referenced
+Ali–Frazier I, shown from neither fighter's perspective. The slugs are
+illustrative. The referenced
 boxer documents must exist before importing the fight.
 
 ```json
@@ -251,7 +249,7 @@ boxer documents must exist before importing the fight.
   "date": { "$date": "1971-03-08T00:00:00Z" },
   "participants": [
     {
-      "boxer_id": { "$oid": "64b000000000000000000001" },
+      "boxer_slug": "muhammad-ali",
       "weight_lb": { "$numberDecimal": "215" },
       "pre_fight_record": {
         "wins": 31,
@@ -261,7 +259,7 @@ boxer documents must exist before importing the fight.
       }
     },
     {
-      "boxer_id": { "$oid": "64b000000000000000000002" },
+      "boxer_slug": "joe-frazier",
       "weight_lb": { "$numberDecimal": "205.5" },
       "pre_fight_record": {
         "wins": 26,
@@ -276,7 +274,7 @@ boxer documents must exist before importing the fight.
   "rounds_completed": 15,
   "result": {
     "outcome": "win",
-    "winner_id": { "$oid": "64b000000000000000000002" },
+    "winner_slug": "joe-frazier",
     "method": "UD"
   },
   "venue": "Madison Square Garden",
@@ -288,8 +286,8 @@ boxer documents must exist before importing the fight.
 }
 ```
 
-This document presumes that ObjectId `...001` refers to Ali and `...002`
-refers to Frazier. On Ali's page the displayed result would be `L UD15`;
+This document presumes that `muhammad-ali` and `joe-frazier` are the
+slugs of Ali and Frazier, respectively. On Ali's page the displayed result would be `L UD15`;
 on Frazier's page it would be `W UD15`. Exact historical details must be
 verified and cited during data entry; the example is not a sourced import.
 
@@ -300,8 +298,8 @@ verified and cited during data entry; the example is not a sourced import.
 | Boxer's age on fight day | Full years between `birth_date` and `date`. |
 | Opponent's age | Same calculation using the other participant's boxer document. |
 | Age text color | Exact project's RGB mapping, indexed by integer age. |
-| Opponent's hyperlink | Opponent boxer exists, `published=true`, and has a `slug`. |
-| Win/loss shown on a profile | Compare that profile's `_id` with `result.winner_id`; handle draws/no-contests. |
+| Opponent's hyperlink | Opponent boxer exists and `published=true`. |
+| Win/loss shown on a profile | Compare that profile's `slug` with `result.winner_slug`; handle draws/no-contests. |
 | Calculated pre-fight record | Aggregate earlier recorded bouts for that boxer. |
 | Calculated career record | Aggregate all recorded professional bouts for that boxer. |
 | YouTube link/thumbnail URL | Derive from selected `videos[].youtube_id`. |
@@ -331,14 +329,14 @@ We will choose a complete controlled vocabulary when we implement imports.
 
 ### Initial application-level validation
 
-- A boxer has a nonempty `key` and `name`; keys are unique and immutable.
-- A published boxer must have a unique, nonempty `slug`.
+- Every boxer has a nonempty `slug` and `name`; slugs are unique and
+  immutable, regardless of publication status.
 - `published` and `fight_history_complete` are explicit booleans, default
   `false` on creation.
 - Each fight has a unique `key`, valid date, exactly two participants, and
-  two different `boxer_id` references that resolve to existing boxers.
+  two different `boxer_slug` references that resolve to existing boxers.
 - Each fight result has a recognized `outcome`; if it is a win, its
-  `winner_id` must be one of those two participants; otherwise it is absent.
+  `winner_slug` must be one of those two participants; otherwise it is absent.
 - Rounds and record counts must be nonnegative where applicable; a stoppage
   round must be positive.
 - Unknowns are omitted rather than fabricated; missing no-contest counts
@@ -349,17 +347,16 @@ We will choose a complete controlled vocabulary when we implement imports.
 
 The first MongoDB-native validators can enforce basic field types and
 required fields. Referential integrity, publication readiness, and the
-`winner_id`/participant relationship should be checked in Python.
+`winner_slug`/participant relationship should be checked in Python.
 
 ## 5. Proposed indexes
 
 | Collection | Key(s) | Index type / reason |
 | --- | --- | --- |
-| `boxers` | `key` | Unique; stable import identity. |
-| `boxers` | `slug` | Unique **partial** index for documents with a string slug; unpublished boxers may omit it. |
+| `boxers` | `slug` | Unique; stable boxer identity for imports, fight references, and URLs. |
 | `boxers` | `weight_classes` | Multikey index to group/find boxers by class. |
 | `fights` | `key` | Unique; idempotent upserts/imports. |
-| `fights` | `participants.boxer_id`, `date` | Compound multikey index for chronologically retrieving a boxer's bouts. |
+| `fights` | `participants.boxer_slug`, `date` | Compound multikey index for chronologically retrieving a boxer's bouts. |
 
 MongoDB automatically indexes `_id`. Indexes should be defined and
 maintained by an explicit versioned setup script when we build the app,
@@ -370,20 +367,20 @@ rather than created manually and undocumented.
 **Environment setup:** servers have separate `mongod` instances and separate
 `boxing` databases. Git deploys code, not live MongoDB data.
 
-**Whole-database copy:** `mongodump` / `mongorestore` preserve ObjectIds, so
-references remain valid when restoring a complete, consistent dataset.
+**Whole-database copy:** `mongodump` / `mongorestore` preserve slugs and
+ObjectIds, so slug references remain valid when restoring a complete,
+consistent dataset.
 
-**Selective import:** do *not* assume an ObjectId generated independently on
-one server has the same meaning on another. Import by immutable `boxers.key`
-(and `fights.key`), resolving each fight participant's logical boxer key to
-the *destination database's* `boxers._id` before upserting the fight. This
-keeps relationships valid and avoids duplicate records. A raw BSON document
-containing arbitrary development ObjectIds is **not**, by itself, a safe
-selective-import format.
+**Selective import:** import boxers by immutable `boxers.slug` and fights
+by `fights.key`. Fight participant and winner slugs are portable across
+servers and do not need to be translated to destination ObjectIds. Ensure
+that all referenced boxer slugs resolve in the destination database before
+upserting a fight. Do not use source ObjectIds as import identities; let
+the destination assign `_id` values for new documents and retain existing
+ones on updates.
 
-We may store reviewed seed/import data in Git as portable JSON, with stable
-**logical boxer keys** rather than environment-specific ObjectIds, and
-write a small importer that resolves them. Imported or corrected fight
+We may store reviewed seed/import data in Git as portable JSON, using the
+same boxer slugs as the database documents themselves. Imported or corrected fight
 documents should not overwrite production records casually; validate,
 preview, and back up before applying changes.
 
@@ -409,7 +406,7 @@ These are not blockers for the eight-boxer prototype:
 2. **Unpublished opponents still get boxer identities.**
 3. **Optional really means optional.** Unknown facts stay unknown.
 4. **Preserve sourced historical claims and calculate derived values.**
-5. **Resolve references by stable logical keys when importing across systems.**
+5. **Use immutable boxer slugs for references and cross-system imports.**
 6. **Track provenance and protect production data from development changes.**
 
 ## Appendix A. Exact age-color palette (display rule, **not** stored data)
