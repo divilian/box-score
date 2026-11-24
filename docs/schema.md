@@ -145,7 +145,7 @@ One document per professional bout, shared by **both** participants. No
 | Field | Type | Required | Meaning / rules |
 | --- | --- | :---: | --- |
 | `_id` | ObjectId | Yes | MongoDB document identifier. |
-| `key` | String | Yes | Unique, stable identifier for imports/upserts; never derive identity solely from an editable display name. |
+| `key` | String | Yes | Unique, immutable identifier for imports/upserts, generated using the fight-key convention below. |
 | `date` | Date | Yes | Bout date as a UTC calendar date. |
 | `participants` | Array of objects | Yes | Exactly two **distinct** boxer references (below). |
 | `weight_class` | String | No | Standardized **official division for this bout**; do not infer from weights alone. |
@@ -159,6 +159,30 @@ One document per professional bout, shared by **both** participants. No
 | `sources` | Array of objects | No | References for fight facts. |
 | `created_at` | Date | Yes | Record creation timestamp. |
 | `updated_at` | Date | Yes | Last modification timestamp. |
+
+### Fight-key convention
+
+Generate `key` automatically when a fight is first created, using the
+UTC calendar date and the two participant slugs in ascending
+lexicographic order:
+
+```text
+YYYY-MM-DD-<first-boxer-slug>-<second-boxer-slug>
+```
+
+For example, Ali–Frazier I has the key
+`1971-03-08-joe-frazier-muhammad-ali`. Sorting the slugs ensures that
+importing a bout from either boxer's perspective produces the same key.
+
+If the same two boxers fought more than once on the same date, use a
+numeric suffix (`-2`, `-3`, etc.) for additional bouts, assigned in
+chronological order when known and consistently reused on subsequent
+imports. The first bout uses the unsuffixed key. Resolve ambiguous
+same-day bouts explicitly rather than guessing or creating duplicates.
+
+Once assigned, a fight's key is immutable, even if its date is later
+corrected. Imports of corrected bouts must reuse the existing key
+rather than generate a new one.
 
 ### `participants` array (exactly two entries)
 
@@ -245,7 +269,7 @@ boxer documents must exist before importing the fight.
 ```json
 {
   "_id": { "$oid": "64b000000000000000000003" },
-  "key": "1971-03-08-ali-frazier-1",
+  "key": "1971-03-08-joe-frazier-muhammad-ali",
   "date": { "$date": "1971-03-08T00:00:00Z" },
   "participants": [
     {
@@ -333,7 +357,8 @@ We will choose a complete controlled vocabulary when we implement imports.
   immutable, regardless of publication status.
 - `published` and `fight_history_complete` are explicit booleans, default
   `false` on creation.
-- Each fight has a unique `key`, valid date, exactly two participants, and
+- Each fight has a unique, immutable `key` assigned according to the
+  fight-key convention on creation, a valid date, exactly two participants, and
   two different `boxer_slug` references that resolve to existing boxers.
 - Each fight result has a recognized `outcome`; if it is a win, its
   `winner_slug` must be one of those two participants; otherwise it is absent.
@@ -372,7 +397,9 @@ ObjectIds, so slug references remain valid when restoring a complete,
 consistent dataset.
 
 **Selective import:** import boxers by immutable `boxers.slug` and fights
-by `fights.key`. Fight participant and winner slugs are portable across
+by `fights.key`. Generate a key for new fights according to the fight-key
+convention; preserve existing keys for updates, including date corrections.
+Fight participant and winner slugs are portable across
 servers and do not need to be translated to destination ObjectIds. Ensure
 that all referenced boxer slugs resolve in the destination database before
 upserting a fight. Do not use source ObjectIds as import identities; let
