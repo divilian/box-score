@@ -1,4 +1,4 @@
-# Box Score
+![](./logo.png)
 
 **Box Score** is a historical boxing reference website that makes professional
 fight records easy to explore, compare, and follow from one boxer to another.
