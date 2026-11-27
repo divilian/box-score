@@ -70,9 +70,6 @@ The MongoDB database is named **`boxing`** and has two collections:
 - **`fights`** — one document per professional bout, referencing exactly two
   boxers. The same fight is never duplicated for its two participants.
 
-The database is the source of truth for the website. We do not maintain
-separate generated Markdown files as the live source for each boxer page.
-
 See **[docs/schema.md](docs/schema.md)** for the proposed data model,
 examples, constraints, and indexing decisions.
 
@@ -88,6 +85,33 @@ examples, constraints, and indexing decisions.
   restores.
 - Do not assume a development database can safely overwrite production after
   production data begins to evolve independently.
+
+## Data management
+
+Box Score maintains a deliberate separation between software and data:
+
+- **Git** is the source of truth for application code, schema definitions,
+  utilities, and documentation.
+- **MongoDB** is the source of truth for historical boxing data and the live
+  website. We do not maintain separate generated Markdown files as the live
+  source for each boxer page.
+
+JSON files serve as a format for bulk imports and data exchange, not as a
+parallel representation of the database. Corrections and additions made
+directly to MongoDB do not require corresponding changes to JSON files or
+commits to Git.
+
+A small prototype dataset will be maintained in the repository for development,
+testing, and demonstration. It will not be kept synchronized with production
+data. Production data will be backed up independently using MongoDB's native
+backup and restore utilities.
+
+MongoDB validators enforce requirements and data types for recognized fields
+while permitting additional fields, allowing the data model to evolve as new
+historical information becomes available.
+
+See **[docs/data-management.md](docs/data-management.md)** for detailed
+policies concerning data imports, maintenance, backups, and schema evolution.
 
 ## Data quality and provenance
 
