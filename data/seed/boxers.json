@@ -1,0 +1,370 @@
+[
+  {
+    "slug": "muhammad-ali",
+    "name": "Muhammad Ali",
+    "birth_name": "Cassius Marcellus Clay Jr.",
+    "nicknames": [
+      "The Greatest"
+    ],
+    "birth_date": {
+      "$date": "1942-01-17T00:00:00Z"
+    },
+    "death_date": {
+      "$date": "2016-06-03T00:00:00Z"
+    },
+    "birth_place": "Louisville, Kentucky, United States",
+    "nationality": "American",
+    "stance": "orthodox",
+    "height_inches": 75,
+    "reach_inches": 78,
+    "weight_classes": [
+      "heavyweight"
+    ],
+    "portrait": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Muhammad_Ali_NYWTS.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Muhammad_Ali_NYWTS.jpg",
+      "credit": "Ira Rosenberg / Library of Congress, Prints and Photographs Division",
+      "license": "Public domain (New York World-Telegram and the Sun Newspaper Photograph Collection)"
+    },
+    "reported_career_record": {
+      "wins": 56,
+      "losses": 5,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "sources": [
+      {
+        "url": "https://academic.oup.com/american-national-biography/reference/63042/reference-article/570334832",
+        "title": "Ali, Muhammad",
+        "publisher": "American National Biography (Oxford University Press)",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "birth_name",
+          "birth_date",
+          "death_date",
+          "birth_place"
+        ]
+      },
+      {
+        "url": "https://boxrec.com/wiki/index.php/Muhammad_Ali",
+        "title": "Muhammad Ali",
+        "publisher": "BoxRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "nicknames",
+          "stance",
+          "weight_classes"
+        ]
+      },
+      {
+        "url": "https://online.flippingbook.com/view/480886504/80-81/",
+        "title": "Thrilla in Manila: Tale of the Tape (October 2025, pp. 80–81)",
+        "publisher": "The Ring",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "height_inches",
+          "reach_inches"
+        ],
+        "notes": "The comparison credits the January 1974 issue of The Ring for these measurements."
+      },
+      {
+        "url": "https://www.beinsports.com/en-mena/boxing/articles/muhammad-ali-the-numbers-behind-his-greatne-1",
+        "title": "Muhammad Ali: The numbers behind his greatness",
+        "publisher": "beIN SPORTS",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "reported_career_record"
+        ],
+        "notes": "Reports 61 professional fights, all accounted for by 56 wins and five losses."
+      }
+    ],
+    "fight_history_complete": false,
+    "published": true
+  },
+  {
+    "slug": "joe-frazier",
+    "name": "Joe Frazier",
+    "nicknames": [
+      "Smokin’ Joe"
+    ],
+    "birth_date": {
+      "$date": "1944-01-12T00:00:00Z"
+    },
+    "death_date": {
+      "$date": "2011-11-07T00:00:00Z"
+    },
+    "birth_place": "Beaufort, South Carolina, United States",
+    "nationality": "American",
+    "stance": "orthodox",
+    "height_inches": 71.5,
+    "reach_inches": 73,
+    "weight_classes": [
+      "heavyweight"
+    ],
+    "portrait": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Joe_Frazier_studio_portrait.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Joe_Frazier_studio_portrait.jpg",
+      "credit": "Unknown photographer, via Wikimedia Commons",
+      "license": "Public domain in the United States (published without copyright notice)"
+    },
+    "reported_career_record": {
+      "wins": 32,
+      "losses": 4,
+      "draws": 1
+    },
+    "sources": [
+      {
+        "url": "https://usopm.org/joe-frazier/",
+        "title": "Joe Frazier",
+        "publisher": "U.S. Olympic & Paralympic Museum",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "birth_date",
+          "death_date",
+          "birth_place",
+          "nationality",
+          "reported_career_record"
+        ]
+      },
+      {
+        "url": "https://www.teamusa.com/hall-of-fame/hall-of-fame-members/joe-frazier",
+        "title": "Joe Frazier",
+        "publisher": "Team USA",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "nicknames",
+          "weight_classes",
+          "reported_career_record"
+        ]
+      },
+      {
+        "url": "https://boxrec.com/wiki/index.php/Human:147",
+        "title": "Joe Frazier",
+        "publisher": "BoxRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "stance"
+        ]
+      },
+      {
+        "url": "https://www.inquirer.com/sports/down-goes-joe-frazier-george-foreman-boxing-upset-philly-20230120.html",
+        "title": "Down went Joe Frazier 50 years ago in a loss to George Foreman that altered lives",
+        "publisher": "The Philadelphia Inquirer",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "height_inches",
+          "reach_inches"
+        ]
+      },
+      {
+        "url": "https://transcription.si.edu/pdf/13670/NMAAHC-2014_89_7_4_007",
+        "title": "Program for a boxing match between Jimmy Ellis and Joe Frazier",
+        "publisher": "Smithsonian National Museum of African American History and Culture",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "reach_inches"
+        ],
+        "notes": "This program lists a reach of 73.5 inches. The profile uses the Philadelphia Inquirer’s 73-inch figure."
+      }
+    ],
+    "fight_history_complete": false,
+    "published": true
+  },
+  {
+    "slug": "george-foreman",
+    "name": "George Foreman",
+    "nicknames": [
+      "Big George"
+    ],
+    "birth_date": {
+      "$date": "1949-01-10T00:00:00Z"
+    },
+    "death_date": {
+      "$date": "2025-03-21T00:00:00Z"
+    },
+    "birth_place": "Marshall, Texas, United States",
+    "nationality": "American",
+    "stance": "orthodox",
+    "height_inches": 75,
+    "reach_inches": 78.5,
+    "weight_classes": [
+      "heavyweight"
+    ],
+    "portrait": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/George_Foreman_1973.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:George_Foreman_1973.jpg",
+      "credit": "Bert Verhoeff / Anefo, Nationaal Archief",
+      "license": "CC0 1.0 Universal"
+    },
+    "reported_career_record": {
+      "wins": 76,
+      "losses": 5,
+      "draws": 0,
+      "no_contests": 0
+    },
+    "sources": [
+      {
+        "url": "https://www.theguardian.com/sport/2025/mar/23/george-foreman-boxer-obituary",
+        "title": "George Foreman obituary",
+        "publisher": "The Guardian",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "birth_date",
+          "death_date",
+          "birth_place",
+          "weight_classes",
+          "reported_career_record"
+        ],
+        "notes": "Reports 81 professional bouts, all accounted for by 76 wins and five losses."
+      },
+      {
+        "url": "https://boxrec.com/wiki/index.php/George_Foreman",
+        "title": "George Foreman",
+        "publisher": "BoxRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "nicknames",
+          "stance"
+        ]
+      },
+      {
+        "url": "https://www.teamusa.com/hall-of-fame/hall-of-fame-members/george-foreman",
+        "title": "George Foreman",
+        "publisher": "Team USA",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "nationality",
+          "weight_classes",
+          "reported_career_record"
+        ]
+      },
+      {
+        "url": "https://www.inquirer.com/sports/down-goes-joe-frazier-george-foreman-boxing-upset-philly-20230120.html",
+        "title": "Down went Joe Frazier 50 years ago in a loss to George Foreman that altered lives",
+        "publisher": "The Philadelphia Inquirer",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "height_inches",
+          "reach_inches"
+        ]
+      }
+    ],
+    "fight_history_complete": false,
+    "published": true
+  },
+  {
+    "slug": "chuck-wepner",
+    "name": "Chuck Wepner",
+    "nicknames": [
+      "The Bayonne Bleeder"
+    ],
+    "birth_date": {
+      "$date": "1939-02-26T00:00:00Z"
+    },
+    "birth_place": "New York City, New York, United States",
+    "nationality": "American",
+    "stance": "orthodox",
+    "height_inches": 77,
+    "weight_classes": [
+      "heavyweight"
+    ],
+    "reported_career_record": {
+      "wins": 35,
+      "losses": 14,
+      "draws": 2
+    },
+    "sources": [
+      {
+        "url": "https://njhalloffame.org/hall-of-famers/2016-inductees/chuck-wepner/",
+        "title": "Chuck Wepner",
+        "publisher": "New Jersey Hall of Fame",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "birth_date",
+          "birth_place",
+          "weight_classes"
+        ],
+        "notes": "Distinguishes his birthplace, New York City, from Bayonne, New Jersey, where he grew up."
+      },
+      {
+        "url": "https://boxrec.com/wiki/index.php/Chuck_Wepner",
+        "title": "Chuck Wepner",
+        "publisher": "BoxRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "nicknames",
+          "weight_classes"
+        ]
+      },
+      {
+        "url": "https://www.bbc.co.uk/sport/64392108",
+        "title": "Chuck Wepner: Honouring the real-life ‘Rocky’ who floored Muhammad Ali",
+        "publisher": "BBC Sport",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "height_inches"
+        ]
+      },
+      {
+        "url": "https://www.latimes.com/archives/la-xpm-2003-nov-13-sp-boxing13-story.html",
+        "title": "The Eye of the Lawsuit",
+        "publisher": "Los Angeles Times",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "reported_career_record"
+        ],
+        "notes": "Source of the 35–14–2 record stored in this profile."
+      },
+      {
+        "url": "https://fightrec.com/boxers/chuck-wepner",
+        "title": "Chuck Wepner",
+        "publisher": "FightRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "nationality",
+          "stance",
+          "reported_career_record"
+        ],
+        "notes": "Lists an alternative record of 36–14–2. The discrepancy in the win count remains unresolved."
+      }
+    ],
+    "fight_history_complete": false,
+    "published": false
+  }
+]

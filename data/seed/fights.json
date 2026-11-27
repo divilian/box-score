@@ -1,0 +1,620 @@
+[
+  {
+    "key": "1971-03-08-joe-frazier-muhammad-ali",
+    "date": {
+      "$date": "1971-03-08T00:00:00Z"
+    },
+    "participants": [
+      {
+        "boxer_slug": "joe-frazier",
+        "weight_lb": {
+          "$numberDecimal": "205.5"
+        },
+        "pre_fight_record": {
+          "wins": 26,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      {
+        "boxer_slug": "muhammad-ali",
+        "weight_lb": {
+          "$numberDecimal": "215"
+        },
+        "pre_fight_record": {
+          "wins": 31,
+          "losses": 0,
+          "draws": 0
+        }
+      }
+    ],
+    "weight_class": "heavyweight",
+    "scheduled_rounds": 15,
+    "rounds_completed": 15,
+    "result": {
+      "outcome": "win",
+      "winner_slug": "joe-frazier",
+      "method": "UD"
+    },
+    "titles_at_stake": [
+      "WBA World Heavyweight",
+      "WBC World Heavyweight"
+    ],
+    "venue": "Madison Square Garden",
+    "location": "New York, New York, United States",
+    "videos": [
+      {
+        "youtube_id": "AfooWYw5bdo",
+        "type": "full_fight",
+        "verified": false
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://boxrec.com/wiki/index.php/Joe_Frazier_vs._Muhammad_Ali_(1st_meeting)",
+        "title": "Joe Frazier vs. Muhammad Ali (1st meeting)",
+        "publisher": "BoxRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "date",
+          "venue",
+          "location",
+          "result",
+          "scheduled_rounds",
+          "titles_at_stake"
+        ],
+        "notes": "Referee Arthur Mercante scored 8–6 for Frazier. Judges Artie Aidala and Bill Recht scored 9–6 and 11–4 for Frazier, respectively. Scores are rounds. BoxRec lists Frazier at 205 lb."
+      },
+      {
+        "url": "https://dailyiowan.lib.uiowa.edu/DI/1974/di1974-01-28.pdf",
+        "title": "Ali, Frazier rematch weigh-in coverage, January 28, 1974",
+        "publisher": "Associated Press, via The Daily Iowan",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.weight_lb"
+        ],
+        "notes": "Reports the first bout's weights as 215 lb for Ali and 205.5 lb for Frazier."
+      },
+      {
+        "url": "https://auction.lelands.com/bids/bidplace?itemid=138499",
+        "title": "Ali–Frazier on-site Fight of the Century poster lot",
+        "publisher": "Lelands",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.pre_fight_record",
+          "participants.weight_lb"
+        ]
+      }
+    ]
+  },
+  {
+    "key": "1973-01-22-george-foreman-joe-frazier",
+    "date": {
+      "$date": "1973-01-22T00:00:00Z"
+    },
+    "participants": [
+      {
+        "boxer_slug": "joe-frazier",
+        "weight_lb": {
+          "$numberDecimal": "214"
+        },
+        "pre_fight_record": {
+          "wins": 29,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      {
+        "boxer_slug": "george-foreman",
+        "weight_lb": {
+          "$numberDecimal": "217.5"
+        },
+        "pre_fight_record": {
+          "wins": 37,
+          "losses": 0,
+          "draws": 0
+        }
+      }
+    ],
+    "weight_class": "heavyweight",
+    "scheduled_rounds": 15,
+    "rounds_completed": 1,
+    "result": {
+      "outcome": "win",
+      "winner_slug": "george-foreman",
+      "method": "TKO",
+      "round": 2,
+      "time": "2:26"
+    },
+    "titles_at_stake": [
+      "WBA World Heavyweight",
+      "WBC World Heavyweight"
+    ],
+    "venue": "National Stadium",
+    "location": "Kingston, Jamaica",
+    "videos": [
+      {
+        "youtube_id": "vkflIMkS23k",
+        "type": "full_fight",
+        "verified": false
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://boxrec.com/wiki/index.php/Joe_Frazier_vs._George_Foreman_(1st_meeting)",
+        "title": "Joe Frazier vs. George Foreman (1st meeting)",
+        "publisher": "BoxRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "date",
+          "venue",
+          "location",
+          "result",
+          "scheduled_rounds",
+          "titles_at_stake"
+        ],
+        "notes": "Referee Arthur Mercante stopped the bout after Frazier's sixth knockdown. BoxRec names Nick Spano and Jack Minott as the judges and gives Foreman's weight as 218 lb."
+      },
+      {
+        "url": "https://dai.mun.ca/PDFs/westernstar/WesternStar19730123.pdf",
+        "title": "Foreman–Frazier fight report, January 23, 1973",
+        "publisher": "The Western Star",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.weight_lb",
+          "participants.pre_fight_record"
+        ],
+        "notes": "Reports weigh-in figures of 214 lb for Frazier and 217.5 lb for Foreman."
+      },
+      {
+        "url": "https://www.boxingonly.net/history/joe-frazier-vs-george-foreman-22nd-january-1973",
+        "title": "Joe Frazier vs George Foreman",
+        "publisher": "Boxing Only",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.pre_fight_record"
+        ]
+      }
+    ]
+  },
+  {
+    "key": "1974-01-28-joe-frazier-muhammad-ali",
+    "date": {
+      "$date": "1974-01-28T00:00:00Z"
+    },
+    "participants": [
+      {
+        "boxer_slug": "muhammad-ali",
+        "weight_lb": {
+          "$numberDecimal": "212"
+        },
+        "pre_fight_record": {
+          "wins": 43,
+          "losses": 2,
+          "draws": 0
+        }
+      },
+      {
+        "boxer_slug": "joe-frazier",
+        "weight_lb": {
+          "$numberDecimal": "209"
+        },
+        "pre_fight_record": {
+          "wins": 30,
+          "losses": 1,
+          "draws": 0
+        }
+      }
+    ],
+    "weight_class": "heavyweight",
+    "scheduled_rounds": 12,
+    "rounds_completed": 12,
+    "result": {
+      "outcome": "win",
+      "winner_slug": "muhammad-ali",
+      "method": "UD"
+    },
+    "titles_at_stake": [
+      "NABF Heavyweight"
+    ],
+    "venue": "Madison Square Garden",
+    "location": "New York, New York, United States",
+    "videos": [
+      {
+        "youtube_id": "NEjaAiNWv24",
+        "type": "full_fight",
+        "verified": false
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://boxrec.com/wiki/index.php/Muhammad_Ali_vs._Joe_Frazier_(2nd_meeting)",
+        "title": "Muhammad Ali vs. Joe Frazier (2nd meeting)",
+        "publisher": "BoxRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "date",
+          "venue",
+          "location",
+          "result",
+          "scheduled_rounds",
+          "titles_at_stake"
+        ],
+        "notes": "Referee Tony Perez scored 6–5 for Ali. Judges Tony Castellano and Jack Gordon scored 7–4 and 8–4 for Ali, respectively. Scores are rounds."
+      },
+      {
+        "url": "https://dailyiowan.lib.uiowa.edu/DI/1974/di1974-01-28.pdf",
+        "title": "Ali, Frazier rematch weigh-in coverage, January 28, 1974",
+        "publisher": "Associated Press, via The Daily Iowan",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.weight_lb"
+        ]
+      },
+      {
+        "url": "https://www.boxingonly.net/history/muhammad-ali-vs-joe-frazier-2-28th-january-1974",
+        "title": "Muhammad Ali vs Joe Frazier II",
+        "publisher": "Boxing Only",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.pre_fight_record"
+        ]
+      }
+    ]
+  },
+  {
+    "key": "1974-10-30-george-foreman-muhammad-ali",
+    "date": {
+      "$date": "1974-10-30T00:00:00Z"
+    },
+    "participants": [
+      {
+        "boxer_slug": "george-foreman",
+        "weight_lb": {
+          "$numberDecimal": "220"
+        },
+        "pre_fight_record": {
+          "wins": 40,
+          "losses": 0,
+          "draws": 0
+        }
+      },
+      {
+        "boxer_slug": "muhammad-ali",
+        "weight_lb": {
+          "$numberDecimal": "216.5"
+        },
+        "pre_fight_record": {
+          "wins": 44,
+          "losses": 2,
+          "draws": 0
+        }
+      }
+    ],
+    "weight_class": "heavyweight",
+    "scheduled_rounds": 15,
+    "rounds_completed": 7,
+    "result": {
+      "outcome": "win",
+      "winner_slug": "muhammad-ali",
+      "method": "KO",
+      "round": 8,
+      "time": "2:58"
+    },
+    "titles_at_stake": [
+      "WBA World Heavyweight",
+      "WBC World Heavyweight"
+    ],
+    "venue": "Stade du 20 Mai",
+    "location": "Kinshasa, Zaire (now Democratic Republic of the Congo)",
+    "videos": [
+      {
+        "youtube_id": "EAXTvi2W6JA",
+        "type": "full_fight",
+        "verified": false
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://boxrec.com/wiki/index.php/George_Foreman_vs._Muhammad_Ali",
+        "title": "George Foreman vs. Muhammad Ali",
+        "publisher": "BoxRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "date",
+          "venue",
+          "location",
+          "result",
+          "scheduled_rounds",
+          "titles_at_stake"
+        ],
+        "notes": "At the stoppage, Ali led 68–66 on referee Zach Clayton's card and 69–66 and 70–67 on judges James Taylor's and Nourridine Adalla's cards. BoxRec lists Ali at 216 lb."
+      },
+      {
+        "url": "https://alicenter.org/roadwork-to-the-rumble/",
+        "title": "Roadwork to the Rumble",
+        "publisher": "Muhammad Ali Center",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.pre_fight_record"
+        ],
+        "notes": "Lists 44–2 for Ali and 40–0 for Foreman."
+      },
+      {
+        "url": "https://www.ringmagazine.com/news/muhammad-ali-outfought-outwitted-and-outlasted-george-foreman-in-a-classic-upset-1E50JwtF8JMXt70Z5m0ucR",
+        "title": "Muhammad Ali outfought, outwitted and outlasted George Foreman in a classic upset",
+        "publisher": "The Ring",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.weight_lb"
+        ],
+        "notes": "The reprinted January 1975 report gives 216.5 lb for Ali and 220 lb for Foreman."
+      }
+    ]
+  },
+  {
+    "key": "1975-03-24-chuck-wepner-muhammad-ali",
+    "date": {
+      "$date": "1975-03-24T00:00:00Z"
+    },
+    "participants": [
+      {
+        "boxer_slug": "muhammad-ali",
+        "weight_lb": {
+          "$numberDecimal": "223.5"
+        },
+        "pre_fight_record": {
+          "wins": 45,
+          "losses": 2,
+          "draws": 0
+        }
+      },
+      {
+        "boxer_slug": "chuck-wepner",
+        "weight_lb": {
+          "$numberDecimal": "225"
+        },
+        "pre_fight_record": {
+          "wins": 30,
+          "losses": 9,
+          "draws": 2
+        }
+      }
+    ],
+    "weight_class": "heavyweight",
+    "scheduled_rounds": 15,
+    "rounds_completed": 14,
+    "result": {
+      "outcome": "win",
+      "winner_slug": "muhammad-ali",
+      "method": "TKO",
+      "round": 15,
+      "time": "2:41"
+    },
+    "titles_at_stake": [
+      "WBA World Heavyweight",
+      "WBC World Heavyweight"
+    ],
+    "venue": "Richfield Coliseum",
+    "location": "Richfield, Ohio, United States",
+    "videos": [
+      {
+        "youtube_id": "dL1RWMLPl08",
+        "type": "full_fight",
+        "verified": false
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://boxrec.com/wiki/index.php/Muhammad_Ali_vs._Chuck_Wepner",
+        "title": "Muhammad Ali vs. Chuck Wepner",
+        "publisher": "BoxRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "date",
+          "venue",
+          "location",
+          "result",
+          "scheduled_rounds",
+          "titles_at_stake"
+        ],
+        "notes": "Referee Tony Perez had Ali ahead 135–130. Judges Jackie Keough and Sam Taormina had Ali ahead 136–129 and 138–129. BoxRec gives Ali's weight as 224 lb."
+      },
+      {
+        "url": "https://richesmi.cah.ucf.edu/sanford_herald/files/original/4a040d04a7eb5f870a847d2a73dcaebe.pdf",
+        "title": "Ali Vs Wepner: Another Benefit, March 24, 1975",
+        "publisher": "Associated Press, via the Evening Herald",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.weight_lb"
+        ],
+        "notes": "Reports the weigh-in as 223.5 lb for Ali and 225 lb for Wepner."
+      },
+      {
+        "url": "https://dai.mun.ca/PDFs/westernstar/WesternStar19750324.pdf",
+        "title": "Ali–Wepner preview, March 24, 1975",
+        "publisher": "The Western Star",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.weight_lb",
+          "participants.pre_fight_record"
+        ],
+        "notes": "Reports an alternate Wepner weight of 223 lb. Its 30–9–2 pre-fight record agrees with TIME."
+      },
+      {
+        "url": "https://time.com/archive/6851010/sport-in-stitches/",
+        "title": "Sport: In Stitches",
+        "publisher": "TIME",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.pre_fight_record"
+        ],
+        "notes": "Reports 30–9–2 for Wepner entering the fight."
+      },
+      {
+        "url": "https://www.boxingonly.net/history/muhammad-ali-vs-chuck-wepner-24th-march-1975",
+        "title": "Muhammad Ali vs Chuck Wepner",
+        "publisher": "Boxing Only",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.pre_fight_record"
+        ],
+        "notes": "Gives Ali's 45–2–0 record. Lists Wepner at 31–9–2, one more win than the contemporary reports used here."
+      },
+      {
+        "url": "https://wbcboxing.com/en/on-this-day-in-boxing-march-24th/",
+        "title": "On This Day in Boxing… March 24th",
+        "publisher": "World Boxing Council",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "titles_at_stake"
+        ],
+        "notes": "The WBC records this as a defense of its title."
+      }
+    ]
+  },
+  {
+    "key": "1975-10-01-joe-frazier-muhammad-ali",
+    "date": {
+      "$date": "1975-10-01T00:00:00Z"
+    },
+    "participants": [
+      {
+        "boxer_slug": "muhammad-ali",
+        "weight_lb": {
+          "$numberDecimal": "224.5"
+        },
+        "pre_fight_record": {
+          "wins": 48,
+          "losses": 2,
+          "draws": 0
+        }
+      },
+      {
+        "boxer_slug": "joe-frazier",
+        "weight_lb": {
+          "$numberDecimal": "215.5"
+        },
+        "pre_fight_record": {
+          "wins": 32,
+          "losses": 2,
+          "draws": 0
+        }
+      }
+    ],
+    "weight_class": "heavyweight",
+    "scheduled_rounds": 15,
+    "rounds_completed": 14,
+    "result": {
+      "outcome": "win",
+      "winner_slug": "muhammad-ali",
+      "method": "RTD",
+      "round": 14,
+      "time": "3:00",
+      "notes": "Eddie Futch retired Frazier following the 14th round."
+    },
+    "titles_at_stake": [
+      "WBA World Heavyweight",
+      "WBC World Heavyweight"
+    ],
+    "venue": "Araneta Coliseum",
+    "location": "Quezon City, Metro Manila, Philippines",
+    "videos": [
+      {
+        "youtube_id": "oNEfN2R4oRc",
+        "type": "full_fight",
+        "verified": false
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://boxrec.com/wiki/index.php/Muhammad_Ali_vs._Joe_Frazier_(3rd_meeting)",
+        "title": "Muhammad Ali vs. Joe Frazier (3rd meeting)",
+        "publisher": "BoxRec",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "date",
+          "venue",
+          "location",
+          "result",
+          "scheduled_rounds",
+          "titles_at_stake"
+        ],
+        "notes": "Frazier's corner stopped the fight after round 14. BoxRec lists the weigh-in weights in whole pounds."
+      },
+      {
+        "url": "https://online.flippingbook.com/view/480886504/80-81/",
+        "title": "Ali–Frazier III retrospective, October 2025, pp. 80–81",
+        "publisher": "The Ring",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.weight_lb"
+        ],
+        "notes": "Lists Ali at 224.5 lb and Frazier at 215.5 lb."
+      },
+      {
+        "url": "https://online.flippingbook.com/view/480886504/82-83/",
+        "title": "Ali–Frazier III retrospective, October 2025, pp. 82–83",
+        "publisher": "The Ring",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "result"
+        ],
+        "notes": "Ali led 66–60 on referee Carlos Padilla's card. Judges Larry Nadayag and Alfredo Quiazon had Ali ahead 66–62 and 67–62."
+      },
+      {
+        "url": "https://www.boxingonly.net/history/muhammad-ali-vs-joe-frazier-3-1st-october-1975",
+        "title": "Muhammad Ali vs Joe Frazier III",
+        "publisher": "Boxing Only",
+        "accessed_on": {
+          "$date": "2026-11-26T00:00:00Z"
+        },
+        "supports": [
+          "participants.pre_fight_record"
+        ]
+      }
+    ]
+  }
+]
