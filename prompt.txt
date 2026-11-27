@@ -1,11 +1,11 @@
 
 I've decided I want to take this thing to the next level.
 
-I'd like to create (and host, on stephendavies.org) a website (working title:
-"Box Score") that has the following features:
+I'd like to create and host a website (working title: "Box Score") that has the
+following features:
 
-- All data is stored in a Mongo instance running on stephendavies.org, in a
-  database called "boxing" and in a collection called "fighters".
+- All data is stored in a Mongo instance running on my server, in a database
+  called "boxing" and in a collection called "fighters".
 
 - The code to produce the content will be a Flask app running in Python.
 
